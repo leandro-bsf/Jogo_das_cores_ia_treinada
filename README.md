@@ -1,35 +1,70 @@
-# Treinando YoloV8
-Fazendo um treinamento da YoloV8
+# Jogo de Detecção de Cores com YOLO e Interação por Voz
 
-## Treinando
-### Instalando pytorch com CUDA para uso da GPU
-Se você tem uma placa de vídeo compatível com CUDA, primeiro instale o PyTorch com CUDA neste link
+Este projeto é um jogo interativo de detecção de cores utilizando o modelo YOLO (You Only Look Once) para visão computacional e reconhecimento de objetos em tempo real. A interação é feita por comandos de voz, e o usuário deve mostrar uma peça de uma cor específica, sorteada pelo sistema, para a câmera.
 
-[https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
+## Funcionalidades
 
-### Instale o Yolo
-```
-pip install ultralitics
-```
+- **Reconhecimento de Cores**: O jogo sorteia uma cor e pede para o usuário mostrar um objeto dessa cor para a câmera.
+- **Interação por Voz**: A interação com o usuário é feita através de áudios (MP3) e o reconhecimento de voz é utilizado para capturar comandos do usuário.
+- **Detecção de Objetos com YOLO**: Utiliza o modelo treinado YOLO para detectar objetos e tentar identificar a cor correta.
+- **Limite de Tentativas**: O usuário tem 3 tentativas para acertar a cor. Caso erre 3 vezes, uma nova cor é sorteada e o jogo continua.
+- **Rastro de Objeto**: Caso o objeto seja seguido, um rastro visual é exibido na tela.
 
-### Treinamento
-Para treinar, acompanhe o vídeo e use o arquivo "train_among_v8.py"
+## Tecnologias Utilizadas
 
-## Testando
-Para testar, se quiser fazer o rastreio coloque a variavel "seguir" em True
-Para desenhar o rastreio coloque a variavel "deixar_rastro" em True
+- **Python**: Linguagem principal utilizada no projeto.
+- **OpenCV**: Biblioteca para captura de vídeo e manipulação de imagem.
+- **YOLO**: Modelo de visão computacional para detecção de objetos.
+- **SpeechRecognition**: Biblioteca para reconhecimento de fala.
+- **pyttsx3**: Biblioteca para sintetização de voz (texto para fala).
+- **pygame**: Utilizado para tocar áudios em formato MP3.
 
-### Testando com WebCam
-Para testar com WebCam use o arquivo "detectar_usando_webcam.py"
+## Requisitos
 
-### Testando Capturando Tela
-Para testar capturando a tela use o arquivo "detectar_capturando_tela.py"
+- Python 3.7 ou superior
+- Dependências listadas no `requirements.txt`:
+  - `opencv-python`
+  - `ultralytics`
+  - `speechrecognition`
+  - `pyttsx3`
+  - `pygame`
+  - `numpy`
 
-Neste caso configure o tamanho da tela no campo "size" da wincap e ajuste o offset do ponto inicial que quer capturar
+## Instalação
 
-Também é possível capturar passando o nome da janela que deseja usar (porém nem sempre funciona)
+1. Clone o repositório:
 
+    ```bash
+    git clone https://github.com/seuusuario/jogo-deteccao-cores.git
+    ```
 
-Valeuuu
+2. Acesse o diretório do projeto:
 
-[!["Treinando Redes Neurais Com Imagens Próprias"](https://img.youtube.com/vi/KV5lszcKuiE/0.jpg)](https://www.youtube.com/watch?v=KV5lszcKuiE)
+    ```bash
+    cd jogo-deteccao-cores
+    ```
+
+3. Instale as dependências:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Certifique-se de que o YOLO está devidamente treinado e o caminho do modelo (`best.pt`) está correto no código.
+
+5. Coloque os arquivos de áudio MP3 na raiz do projeto ou no diretório de áudio conforme indicado no código.
+
+## Como Executar
+
+1. Conecte uma câmera ao computador (ou utilize a webcam integrada).
+2. Execute o script principal:
+
+    ```bash
+    python jogo_cores.py
+    ```
+
+3. O jogo começará com um áudio de boas-vindas, e o sistema sorteará uma cor. Mostre um objeto da cor solicitada para a câmera e tente acertar!
+
+4. O sistema irá acompanhar suas tentativas. Caso acerte, um áudio de vitória será reproduzido. Se errar, um áudio de erro será executado. Se errar 3 vezes, o jogo sorteará outra cor.
+
+5. Para sair do jogo, pressione a tecla `q`.

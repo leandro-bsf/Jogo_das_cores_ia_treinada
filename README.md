@@ -1,5 +1,4 @@
-# Jogo de Detecção de Cores com YOLO e Interação por Voz
-
+# Jogo de Detecção de Cores com YOLO  
 Este projeto é um jogo interativo de detecção de cores utilizando o modelo YOLO (You Only Look Once) para visão computacional e reconhecimento de objetos em tempo real. A interação é feita por comandos de voz, e o usuário deve mostrar uma peça de uma cor específica, sorteada pelo sistema, para a câmera.
 
 ## Funcionalidades
